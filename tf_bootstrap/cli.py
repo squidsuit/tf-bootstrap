@@ -9,8 +9,7 @@ class Project(object):
         self.name = name
         self.path = path
         self.scm_provider = scm_provider
-        self.cfg = cfg
-        
+        self.cfg = cfg        
 
 # @click.group(chain=True, invoke_without_command=True)
 @click.group()

@@ -27,11 +27,13 @@ def create(project):
     def scm_create(name, path, scm_provider, cfg):
         click.echo(f'We\'re going to create this thing in {project.scm_provider} now!')
 
+        url = "https://gitlab.com/api/v4/projects?name=" + project.name
+
         try:
             headers = {
                   'private-token': cfg["source_control"]["gitlab"]["pat"]
             }
-            r = requests.request("POST", "https://gitlab.com/api/v4/projects?name=postman-test", headers=headers)
+            r = requests.request("POST", url, headers=headers)
             print(r.text)
         except Exception as e:
             print(e)

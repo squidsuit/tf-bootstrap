@@ -32,11 +32,13 @@ def destroy(project):
 
         click.echo(f'We\'re going to destroy this thing in {project.scm_provider} now.')
 
+        url = "https://gitlab.com/api/v4/projects/exoskeleton%2F" + project.name 
+
         try:
             headers = {
                   'private-token': cfg["source_control"]["gitlab"]["pat"]
             }
-            r = requests.request("DELETE", "https://gitlab.com/api/v4/projects/exoskeleton%2Fpostman-test", headers=headers)
+            r = requests.request("DELETE", url, headers=headers)
             print(r.text)
         except Exception as e:
             print(e)
