@@ -16,7 +16,7 @@ def create(project):
         click.echo(f"Creating a project with the name {project.name}")
         try:
             fullpath = os.path.join(project.path, project.name)
-            os.mkdir(fullpath)
+            os.makedirs(fullpath)
         except FileExistsError as e:
             click.echo(f'This directory already exists. Please choose a different project name, destroy the previous project, or use the one that already exists. \n{e}')
         except OSError as e:

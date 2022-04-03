@@ -23,7 +23,6 @@ def cli(ctx, name, path, scm_provider):
     '''
 
     cfg = utils.load_config()
-    print(cfg)
     ctx.obj = Project(name, path, scm_provider, cfg)
 
     # print(ctx.obj.name)
