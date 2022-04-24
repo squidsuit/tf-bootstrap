@@ -11,11 +11,11 @@ class Project(object):
         self.scm_provider = scm_provider
         self.cfg = cfg        
 
-# @click.group(chain=True, invoke_without_command=True)
 @click.group()
-@click.option('--name', default="robertocampana", help="Name of the project")
+@click.option('--name', default="bootstrap-test", help="Name of the project")
 @click.option('--path', default="/users/Agency/git", help="Local location for the project")
 @click.option('--scm_provider', default="Gitlab", help="SCM provider (e.g.; GitHub, Gitlab")
+# @click.option('--workspace', default=click.option(name), help="TFC Workspace")
 @click.pass_context
 def cli(ctx, name, path, scm_provider):
     '''
